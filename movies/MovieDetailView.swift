@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    
     let movie: Movie
     
     var body: some View {
@@ -216,7 +217,7 @@ struct MovieDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("Movie Details")
+        .navigationTitle("Details")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
