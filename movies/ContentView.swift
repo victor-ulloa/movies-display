@@ -12,21 +12,14 @@ struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
     
     var body: some View {
-            NavigationView {
-                List(viewModel.movies) { movie in
-                    VStack(alignment: .leading) {
-                        Text(movie.title)
-                            .font(.headline)
-                        Text("Year: \(movie.year)")
-                            .font(.subheadline)
-                        Text("Type: \(movie.type)")
-                            .font(.subheadline)
-                    }
-                }
-                .navigationTitle("Movies")
-                .searchable(text: $viewModel.searchTerm)
+        NavigationView {
+            List(viewModel.movies) { movie in
+                ListItem(movie: movie)
             }
+            .navigationTitle("Movies")
+            .searchable(text: $viewModel.searchTerm)
         }
+    }
 }
 
 #Preview {

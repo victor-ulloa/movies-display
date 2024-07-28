@@ -34,11 +34,32 @@ final class ViewModel: ObservableObject {
         omdbService.fetchMovies(searchTerm: searchTerm) { [weak self] movies, error in
             DispatchQueue.main.async {
                 if let movies = movies {
-                    self?.movies = movies
+                    self?.fetchDetailsForMovies(movies: movies)
                 } else {
                     self?.movies = []
                 }
             }
+        }
+    }
+    
+    private func fetchDetailsForMovies(movies: [Movie]) {
+        let group = DispatchGroup()
+        var detailedMovies: [Movie] = []
+        
+        for movie in movies {
+            group.enter()
+            omdbService.fetchMovieDetails(imdbID: movie.imdbID) { movieDetails, error in
+                if let movieDetails = movieDetails {
+                    detailedMovies.append(movieDetails)
+                } else {
+                    detailedMovies.append(movie)
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            self.movies = detailedMovies
         }
     }
 }

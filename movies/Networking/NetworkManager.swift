@@ -36,4 +36,30 @@ final class NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchMovieDetails(imdbID: String, completion: @escaping (Movie?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseURL)?apikey=\(apiKey)&i=\(imdbID)") else {
+            completion(nil, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, NSError(domain: "Data Error", code: 0, userInfo: nil))
+                return
+            }
+            
+            do {
+                let movie = try JSONDecoder().decode(Movie.self, from: data)
+                completion(movie, nil)
+            } catch let jsonError {
+                completion(nil, jsonError)
+            }
+        }.resume()
+    }
 }
