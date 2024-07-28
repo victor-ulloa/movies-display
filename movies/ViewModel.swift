@@ -11,6 +11,7 @@ import Combine
 final class ViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var searchTerm: String = ""
+    @Published var selectedMovie: Movie?
     
     private var cancellables = Set<AnyCancellable>()
     private let omdbService = NetworkManager()
@@ -60,6 +61,16 @@ final class ViewModel: ObservableObject {
         
         group.notify(queue: .main) {
             self.movies = detailedMovies
+        }
+    }
+    
+    func fetchMovieDetails(imdbID: String) {
+        omdbService.fetchMovieDetails(imdbID: imdbID) { [weak self] movie, error in
+            DispatchQueue.main.async {
+                if let movie = movie {
+                    self?.selectedMovie = movie
+                }
+            }
         }
     }
 }

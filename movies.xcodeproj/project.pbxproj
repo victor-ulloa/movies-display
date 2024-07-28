@@ -17,6 +17,7 @@
 		57C1AE7E2C55D0FD0090D3E7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1AE7D2C55D0FD0090D3E7 /* ViewModel.swift */; };
 		57C1AE812C55D42A0090D3E7 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1AE802C55D42A0090D3E7 /* ListItem.swift */; };
 		57C1AE832C55DA0C0090D3E7 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1AE822C55DA0C0090D3E7 /* Rating.swift */; };
+		57C1AE852C55E6330090D3E7 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1AE842C55E6330090D3E7 /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		57C1AE7F2C55D2390090D3E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		57C1AE802C55D42A0090D3E7 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		57C1AE822C55DA0C0090D3E7 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		57C1AE842C55E6330090D3E7 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				57C1AE782C55CF8C0090D3E7 /* Networking */,
 				57C1AE6D2C55CC0B0090D3E7 /* Preview Content */,
 				57C1AE802C55D42A0090D3E7 /* ListItem.swift */,
+				57C1AE842C55E6330090D3E7 /* MovieDetailView.swift */,
 			);
 			path = movies;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				57C1AE7A2C55CFA40090D3E7 /* NetworkManager.swift in Sources */,
 				57C1AE812C55D42A0090D3E7 /* ListItem.swift in Sources */,
 				57C1AE7C2C55CFF30090D3E7 /* MoviesResponse.swift in Sources */,
+				57C1AE852C55E6330090D3E7 /* MovieDetailView.swift in Sources */,
 				57C1AE6A2C55CC0A0090D3E7 /* ContentView.swift in Sources */,
 				57C1AE832C55DA0C0090D3E7 /* Rating.swift in Sources */,
 				57C1AE682C55CC0A0090D3E7 /* moviesApp.swift in Sources */,

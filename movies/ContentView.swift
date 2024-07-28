@@ -15,9 +15,16 @@ struct ContentView: View {
         NavigationView {
             List(viewModel.movies) { movie in
                 ListItem(movie: movie)
+                    .onTapGesture {
+                        viewModel.fetchMovieDetails(imdbID: movie.imdbID)
+                    }
             }
             .navigationTitle("Movies")
             .searchable(text: $viewModel.searchTerm)
+            .sheet(item: $viewModel.selectedMovie) { movie in
+                MovieDetailView(movie: movie)
+                    .presentationDragIndicator(.visible)
+            }
         }
     }
 }
