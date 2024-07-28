@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Movie: Codable {
+struct Movie: Codable, Identifiable {
+    
+    let id = UUID()
     let title: String
     let year: String
     let imdbID: String
